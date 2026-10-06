@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Khushabu Sharma — Web Developer & Creative Engineer</title>
+  <meta name="description"
+    content="Khushabu Sharma is a certified web developer and 3D creative engineer crafting interactive 3D digital experiences and full-stack platforms." />
+
+  <!-- OpenGraph & Social Preview Meta Tags -->
+  <meta property="og:title" content="Khushabu Sharma — 3D Designer & Creative Engineer" />
+  <meta property="og:description"
+    content="High-performance 24fps 3D scroll canvas engine with Apple Clear Liquid Glass UI architecture." />
+  <meta property="og:image" content="./portfolio_thumbnail.png" />
+  <meta property="og:url" content="https://aaddi1.github.io/My-Portfolio/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Khushabu Sharma — 3D Designer & Creative Engineer" />
+  <meta name="twitter:description"
+    content="High-performance 24fps 3D scroll canvas engine with Apple Clear Liquid Glass UI architecture." />
+  <meta name="twitter:image" content="./portfolio_thumbnail.png" />
+
+  <!-- Favicons & Icons -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/png" href="./avatar.png" />
+  <link rel="apple-touch-icon" href="./avatar.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Unbounded:wght@800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <!-- Top Viewport Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+
+  <!-- Minimal Preloader Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <div class="loader-text">
+        <span id="loader-percent">0%</span>
+      </div>
+      <div class="loader-bar-bg">
+        <div id="loader-bar" class="loader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed 3D Background Canvas -->
+  <div class="canvas-container">
+    <canvas id="animation-canvas"></canvas>
+    <div class="canvas-overlay"></div>
+  </div>
+
+  <!-- Sticky Top Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo">
+        <div class="logo-avatar-wrap">
+          <img src="./avatar.png" alt="Khushabu Sharma" class="logo-avatar-img" />
+        </div>
+        <div class="logo-info">
+          <span class="logo-text">Khushabu Sharma</span>
+          <span class="logo-sub">WEB DEVELOPER &bull; ENGINEER</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#technologies" class="nav-link">TECHNOLOGIES</a>
+        <a href="#services" class="nav-link">SERVICES</a>
+        <a href="#projects" class="nav-link">PROJECTS</a>
+        <a href="#certificates" class="nav-link">CERTIFICATES</a>
+        <a href="#contact" class="nav-link">CONTACT</a>
+      </nav>
+
+      <a href="#contact" class="btn-pill header-cta">
+        <span>CONTACT ME</span>
+      </a>
+
+      <!-- Mobile Menu Hamburger Button -->
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation menu"
+        aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Liquid Glass Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer glass-panel" aria-hidden="true">
+      <div class="mobile-nav-links">
+        <a href="#about" class="mobile-nav-link">
+          <span class="mobile-nav-num">01</span>
+          <span class="mobile-nav-text">ABOUT</span>
+        </a>
+        <a href="#services" class="mobile-nav-link">
+          <span class="mobile-nav-num">02</span>
+          <span class="mobile-nav-text">SERVICES</span>
+        </a>
+        <a href="#projects" class="mobile-nav-link">
+          <span class="mobile-nav-num">03</span>
+          <span class="mobile-nav-text">PROJECTS</span>
+        </a>
+        <a href="#certificates" class="mobile-nav-link">
+          <span class="mobile-nav-num">04</span>
+          <span class="mobile-nav-text">CERTIFICATES</span>
+        </a>
+        <a href="#testimonials" class="mobile-nav-link">
+          <span class="mobile-nav-num">05</span>
+          <span class="mobile-nav-text">TESTIMONIALS</span>
+        </a>
+        <a href="#contact" class="mobile-nav-link">
+          <span class="mobile-nav-num">06</span>
+          <span class="mobile-nav-text">CONTACT</span>
+        </a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="#contact" class="btn-pill mobile-nav-cta">
+          <span>GET IN TOUCH</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <div class="mobile-nav-socials">
+          <a href="https://www.linkedin.com/in/Khushabu-sharma11/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z" />
+            </svg>
+          </a>
+          <a href="https://github.com/aaddi1" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/Khushabusharma.dev/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="https://x.com/Khushabu56710" target="_blank" rel="noopener" aria-label="X (Twitter)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Content Container -->
+  <main class="main-content">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-top-badge hero-reveal-item">
+            <span class="badge-tag">PORTFOLIO '26</span>
+            <span class="badge-divider">/</span>
+
+            <span class="badge-desc">WEB DEVELOPMENT &amp; CREATIVE DESIGNG</span>
+          </div>
+
+          <h1 class="hero-headline hero-reveal-item">
+            <span class="hero-line">HI, I'M</span>
+            <span class="hero-line hero-name">Khushabu</span>
+          </h1>
+
+          <div class="hero-bio hero-reveal-item">
+            <p>A WEB DEVELOPER BUILDING SCALABLE WEB APPLICATIONS WITH MODERN TECHNOLOGIES AND CREATIVE THINKING
+              &reg;</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infinite Client & Tech Marquee -->
+      <div class="client-marquee-wrapper hero-reveal-item">
+        <div class="client-marquee">
+          <div class="marquee-track">
+            <span class="marquee-item">HTML5</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">CSS3</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">JAVASCRIPT</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">BOOTSTRAP</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">REACT JS</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">PHP</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">LARAVEL</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">MYSQL</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">REST API</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">FRONTEND DEVELOPMENT</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">BACKEND DEVELOPMENT</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">WEB DEVELOPMENT</span>
+            <span class="marquee-divider">&bull;</span>
+          </div>
+
+          <div class="marquee-track" aria-hidden="true">
+            <span class="marquee-item">HTML5</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">CSS3</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">JAVASCRIPT</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">BOOTSTRAP</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">REACT JS</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">PHP</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">LARAVEL</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">MYSQL</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">REST API</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">FRONTEND DEVELOPMENT</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">BACKEND DEVELOPMENT</span>
+            <span class="marquee-divider">&bull;</span>
+            <span class="marquee-item">WEB DEVELOPMENT</span>
+            <span class="marquee-divider">&bull;</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="mono-num">01</span>
+          <span class="tag-title">ABOUT Khushabu</span>
+        </div>
+
+        <div class="about-grid-card glass-panel">
+          <!-- Avatar Side -->
+          <div class="about-avatar-col">
+            <div class="about-avatar-frame">
+              <img src="./avatar.png" alt="Khushabu Sharma" class="about-avatar-img" />
+              <div class="about-avatar-badge">
+                <span class="status-dot"></span>
+                <span>AVAILABLE FOR WORK</span>
+              </div>
+            </div>
+            <div class="about-quick-facts">
+              <div class="fact-item">
+                <span class="fact-label">EDUCATION</span>
+                <span class="fact-value">Diploma in Computer Science & Engineering</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-label">INTERNSHIP</span>
+                <span class="fact-value">6 Months</span>
+              </div>
+              <div class="fact-item">
+                <span class="fact-label">WORK EXPERIENCE</span>
+                <span class="fact-value">3 Months</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio Content Side -->
+          <div class="about-content-col">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="about-bio-paragraphs">
+              <p class="lead-text">
+                I'm a passionate Web Developer with a Diploma in Computer Science and hands-on experience in building
+                responsive websites and dynamic web applications.
+              </p>
+              <p class="sub-text">
+                I have completed a 6-month apprenticeship followed by 3 months of intern-level work experience at Dream
+                Medicine Educone Lucknow, where I gained practical exposure to web development and real-world projects.
+                I enjoy creating clean, user-friendly interfaces, developing functional web applications, and turning
+                ideas into
+                practical digital solutions.
+              </p>
+              <p class="sub-text">
+                I'm continuously learning new technologies, improving my problem-solving abilities, and growing as a
+                developer. My goal is to build efficient, accessible, and reliable web applications while contributing
+                to meaningful projects.
+              </p>
+            </div>
+
+            <!-- Technical Skills Matrix -->
+            <div class="skills-matrix">
+              <div class="skill-category">
+                <span class="skill-cat-title">FRONTEND DEVELOPMENT</span>
+                <div class="skill-pills">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                  <span>React.js</span>
+                  <span>Responsive Design</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <span class="skill-cat-title">BACKEND DEVELOPMENT</span>
+                <div class="skill-pills">
+                  <span>PHP</span>
+                  <span>Laravel</span>
+                  <span>MVC Architecture</span>
+                  <span>RESTful APIs</span>
+                  <span>CRUD Operations</span>
+                  <span>Authentication</span>
+                </div>
+              </div>
+
+              <div class="skill-category">
+                <span class="skill-cat-title">DATABASE & TOOLS</span>
+                <div class="skill-pills">
+                  <span>MySQL</span>
+                  <span>Database Management</span>
+                  <span>Git</span>
+                  <span>GitHub</span>
+                  <span>API Integration</span>
+                  <span>JSON</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="about-footer">
+              <div class="about-actions">
+                <a href="#contact" class="btn-pill">
+                  <span>CONTACT ME</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/Khushabu-sharma11/" target="_blank" rel="noopener"
+                  class="btn-ghost">
+                  <span>LINKEDIN PROFILE</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 17L17 7M17 7H7M17 7V17" />
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="technologies" class="techstack-section">
+      <div class="techstack-heading">
+        <div class="techstack-section-tag">
+          <span>02</span>
+          <span>TECHNOLOGIES</span>
+        </div>
+
+        <div class="techstack-centerheading">
+          <h2 class="section-title">MY TECHSTACK</h2>
+        </div>
+
+      </div>
+
+      <div id="techstack-canvas"></div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="mono-num">03</span>
+          <span class="tag-title">WHAT I DO</span>
+        </div>
+
+        <h2 class="section-title">SERVICES</h2>
+
+        <div class="services-list">
+          <!-- Service 01 -->
+          <div class="service-item glass-panel">
+            <div class="service-header">
+              <span class="service-num">01</span>
+              <h3 class="service-name">FRONTEND DEVELOPMENT</h3>
+            </div>
+            <p class="service-desc">
+              Building responsive, modern, and user-friendly interfaces
+              that deliver seamless experiences across desktop, tablet,
+              and mobile devices.
+            </p>
+            <div class="service-tags">
+              <span>HTML & CSS</span>
+              <span>JavaScript</span>
+              <span>Bootstrap</span>
+              <span>React</span>
+            </div>
+          </div>
+
+          <!-- Service 02 -->
+          <div class="service-item glass-panel">
+            <div class="service-header">
+              <span class="service-num">02</span>
+              <h3 class="service-name">BACKEND DEVELOPMENT</h3>
+            </div>
+            <p class="service-desc">
+              Developing dynamic web applications with secure backend
+              functionality, server-side logic, authentication, and
+              efficient data processing.
+            </p>
+            <div class="service-tags">
+              <span>PHP</span>
+              <span>Laravel</span>
+              <span>REST APIs</span>
+            </div>
+          </div>
+
+          <!-- Service 03 -->
+          <div class="service-item glass-panel">
+            <div class="service-header">
+              <span class="service-num">03</span>
+              <h3 class="service-name">DATABASE MANAGEMENT</h3>
+            </div>
+            <p class="service-desc">
+              Designing and managing structured databases to store,
+              organize, retrieve, and maintain application data
+              efficiently and reliably.
+            </p>
+            <div class="service-tags">
+              <span>MySQL</span>
+              <span>Database Design</span>
+              <span>CRUD Operations</span>
+            </div>
+          </div>
+
+          <!-- Service 04 -->
+          <div class="service-item glass-panel">
+            <div class="service-header">
+              <span class="service-num">04</span>
+              <h3 class="service-name">FULL STACK DEVELOPMENT</h3>
+            </div>
+            <p class="service-desc">
+              Building end-to-end web applications by combining
+              responsive frontend interfaces, backend functionality,
+              and database integration.
+            </p>
+            <div class="service-tags">
+              <span>Frontend</span>
+              <span>Backend</span>
+              <span>MySQL</span>
+              <span>Laravel</span>
+            </div>
+          </div>
+
+          <!-- Service 05 -->
+          <div class="service-item glass-panel">
+            <div class="service-header">
+              <span class="service-num">05</span>
+              <h3 class="service-name">API INTEGRATION</h3>
+            </div>
+            <p class="service-desc">
+              Connecting web applications with REST APIs to exchange
+              data, integrate services, and create smooth communication
+              between frontend and backend systems.
+            </p>
+            <div class="service-tags">
+              <span>REST API</span>
+              <span>JSON</span>
+              <span>API Integration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--PROJECTS SECTION-->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+
+        <!-- MAIN SECTION HEADER -->
+        <div class="section-tag">
+          <span class="mono-num">04</span>
+          <span class="tag-title">SELECTED WORK</span>
+        </div>
+
+        <h2 class="section-title">PROJECTS</h2>
+
+        <p class="projects-intro">
+          A selection of professional work, personal projects and
+          web applications I've designed and developed.
+        </p>
+
+
+        <!-- =====================================================
+         01 — PROFESSIONAL WORK
+    ====================================================== -->
+        <div class="project-category">
+
+          <div class="category-header">
+            <div class="category-title-wrap">
+              <span class="category-number">01</span>
+              <div>
+                <span class="category-label">PROFESSIONAL WORK</span>
+                <h3>Company Projects</h3>
+              </div>
+            </div>
+
+            <p class="category-description">
+              Websites and digital platforms I contributed to during
+              my professional experience.
+            </p>
+          </div>
+
+
+          <div class="projects-grid">
+
+            <!-- MBBS ADVISOR -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/starinn.png" alt="MBBS Advisor Website" class="project-thumb-img" loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  PROFESSIONAL
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">01</span>
+
+                  <span class="project-tag">
+                    PHP &bull; JS &bull; BOOTSTRAP
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">COMPANY PROJECT</span>
+
+                  <h3 class="client-name">
+                    MBBS Advisor
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  Medical education platform focused on university
+                  information, admissions and MBBS abroad guidance.
+                  Contributed to responsive pages, content sections
+                  and frontend improvements.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://mbbsadvisor.in/" target="_blank" rel="noopener" class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+
+            <!-- CASPIAN UNIVERSITY -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/nexus.png" alt="Caspian University Website" class="project-thumb-img"
+                  loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  PROFESSIONAL
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">02</span>
+
+                  <span class="project-tag">
+                    PHP &bull; RESPONSIVE
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">COMPANY PROJECT</span>
+
+                  <h3 class="client-name">
+                    Caspian University
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  University website focused on academic programs,
+                  admission information and educational resources.
+                  Contributed to responsive layouts and frontend
+                  website improvements.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://caspianuniversity.in/" target="_blank" rel="noopener" class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+
+            <!-- KURSK SMU -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/cinder_house.png" alt="Kursk State Medical University Website"
+                  class="project-thumb-img" loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  PROFESSIONAL
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">03</span>
+
+                  <span class="project-tag">
+                    WEB DEVELOPMENT &bull; UI
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">COMPANY PROJECT</span>
+
+                  <h3 class="client-name">
+                    Kursk SMU
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  University website with responsive layouts,
+                  structured content sections and frontend
+                  improvements for a better user experience.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://kursksmu.in/" target="_blank" rel="noopener" class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+
+            <!-- SEU GEORGIA -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/advocate.png" alt="SEU Georgia Website" class="project-thumb-img" loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  PROFESSIONAL
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">04</span>
+
+                  <span class="project-tag">
+                    PHP &bull; FRONTEND
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">COMPANY PROJECT</span>
+
+                  <h3 class="client-name">
+                    SEU Georgia
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  University website developed with responsive
+                  layouts, structured content and frontend
+                  components. Contributed to website improvements
+                  and user interface updates.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://seu.mbbs-in-georgia.in/" target="_blank" rel="noopener" class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+
+            <!-- TASHKENT SMU -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/tashkent-smu.png" alt="Tashkent State Medical University Website"
+                  class="project-thumb-img" loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  PROFESSIONAL
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">05</span>
+
+                  <span class="project-tag">
+                    PHP &bull; FRONTEND
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">COMPANY PROJECT</span>
+
+                  <h3 class="client-name">
+                    Tashkent SMU
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  Medical university website focused on academic programs,
+                  admission information and educational resources.
+                  Contributed to responsive layouts, content sections
+                  and frontend website improvements.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://tashkentsmu.com/" target="_blank" rel="noopener" class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+
+            <!-- MBBS ADVISOR — NEET -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/mbbs-advisor-neet.png" alt="MBBS Advisor NEET Website" class="project-thumb-img"
+                  loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  PROFESSIONAL
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">06</span>
+
+                  <span class="project-tag">
+                    PHP &bull; JS &bull; BOOTSTRAP
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">COMPANY PROJECT</span>
+
+                  <h3 class="client-name">
+                    MBBS Advisor NEET
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  NEET-focused medical education platform providing
+                  admission guidance, educational information and
+                  student-focused resources with responsive web layouts.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>PHP</span>
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://mbbsadvisor.in/neet/" target="_blank" rel="noopener" class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+          </div>
+        </div>
+
+
+        <!-- =====================================================
+         02 — PERSONAL FRONTEND PROJECTS
+    ====================================================== -->
+        <div class="project-category">
+
+          <div class="category-header">
+            <div class="category-title-wrap">
+              <span class="category-number">02</span>
+
+              <div>
+                <span class="category-label">
+                  PERSONAL FRONTEND PROJECTS
+                </span>
+
+                <h3>Live Projects</h3>
+              </div>
+            </div>
+
+            <p class="category-description">
+              Frontend websites designed and developed independently
+              and currently available online.
+            </p>
+          </div>
+
+
+          <div class="projects-grid">
+
+            <!-- GGPG -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/nexus.png" alt="GGPG Gorakhpur Website" class="project-thumb-img" loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  LIVE WEBSITE
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">01</span>
+
+                  <span class="project-tag">
+                    FRONTEND DEVELOPMENT
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">PERSONAL PROJECT</span>
+
+                  <h3 class="client-name">
+                    GGPG Gorakhpur
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  Responsive college website designed to present
+                  academic information, courses, admission details
+                  and campus resources through a clean interface.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                  <span>Responsive</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://khushabusharmaa.github.io/GGPGorakhpur/" target="_blank" rel="noopener"
+                    class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+
+            <!-- CRUMBELLA -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/cinder_house.png" alt="Crumbella Website" class="project-thumb-img"
+                  loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  LIVE WEBSITE
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">02</span>
+
+                  <span class="project-tag">
+                    FRONTEND DEVELOPMENT
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">PERSONAL PROJECT</span>
+
+                  <h3 class="client-name">
+                    Crumbella
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  Modern bakery website designed with a clean visual
+                  style, product presentation and responsive layouts
+                  focused on a smooth browsing experience.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                  <span>UI Design</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://khushabusharmaa.github.io/crumbella/" target="_blank" rel="noopener"
+                    class="project-link">
+                    <span>VIEW LIVE WEBSITE</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+
+        <!-- =====================================================
+         03 — PERSONAL FULL-STACK PROJECT
+    ====================================================== -->
+        <div class="project-category">
+
+          <div class="category-header">
+            <div class="category-title-wrap">
+              <span class="category-number">03</span>
+
+              <div>
+                <span class="category-label">
+                  PERSONAL FULL-STACK PROJECT
+                </span>
+
+                <h3>Grocery Store</h3>
+              </div>
+            </div>
+
+            <p class="category-description">
+              A full-stack web application built to showcase
+              backend development and database integration.
+            </p>
+          </div>
+
+
+          <div class="projects-grid">
+
+            <!-- GROCERY STORE -->
+            <article class="project-card glass-panel">
+
+              <div class="project-thumb-wrap">
+                <img src="./projects/starinn.png" alt="Grocery Store Full Stack Application" class="project-thumb-img"
+                  loading="lazy" />
+
+                <span class="project-thumb-tag">
+                  FULL-STACK APPLICATION
+                </span>
+              </div>
+
+              <div class="project-body">
+
+                <div class="project-top">
+                  <span class="project-idx">01</span>
+
+                  <span class="project-tag">
+                    LARAVEL &bull; PHP &bull; MYSQL
+                  </span>
+                </div>
+
+                <div class="project-meta">
+                  <span class="client-label">
+                    PERSONAL PROJECT
+                  </span>
+
+                  <h3 class="client-name">
+                    Grocery Store
+                  </h3>
+                </div>
+
+                <p class="project-info">
+                  Full-stack grocery store application built with
+                  Laravel and PHP, featuring product management,
+                  authentication, shopping cart functionality and
+                  order management.
+                </p>
+
+                <div class="project-tags-row">
+                  <span>Laravel</span>
+                  <span>PHP</span>
+                  <span>MySQL</span>
+                  <span>JavaScript</span>
+                  <span>Bootstrap</span>
+                </div>
+
+                <div class="project-footer">
+                  <a href="https://github.com/KhushabuSharmaa/Grocery-Store" target="_blank" rel="noopener"
+                    class="project-link">
+                    <span>VIEW ON GITHUB</span>
+
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!--EDUCATION & EXPERIENCE -->
+
+    <section id="certificates" class="section cert-section">
+
+      <div class="container">
+
+        <!-- Section Tag -->
+        <div class="section-tag">
+          <span class="mono-num">05</span>
+          <span class="tag-title">CERTIFICATES</span>
+        </div>
+
+
+        <!-- Section Header -->
+        <div class="cert-header-wrap">
+
+          <h2 class="section-title">
+            EDUCATION &amp; EXPERIENCE
+          </h2>
+
+          <p class="section-subtitle">
+            Academic qualification and professional experience of
+            <strong>Khushbu Sharma</strong> in computer science and web development.
+          </p>
+
+        </div>
+
+
+        <!-- =====================================================
+         CREDENTIAL GRID
+         ===================================================== -->
+
+        <div id="cert-grid" class="cert-grid">
+
+
+          <!-- =================================================
+           01 — DIPLOMA IN COMPUTER SCIENCE
+           ================================================= -->
+
+          <div class="cert-card glass-panel">
+
+            <div class="cert-thumb-wrap">
+
+              <img src="./certificates/diploma-computer-science.png"
+                alt="Diploma in Computer Science - Government Girls Polytechnic Gorakhpur" class="cert-thumb-img"
+                loading="lazy" />
+
+              <div class="cert-thumb-overlay">
+
+                <span class="cert-expand-badge">
+
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+
+                  <span>VIEW CREDENTIAL</span>
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="cert-body">
+
+              <div class="cert-card-header">
+
+                <span class="cert-badge">
+                  EDUCATION
+                </span>
+
+                <span class="cert-date">
+                  DIPLOMA
+                </span>
+
+              </div>
+
+
+              <h3 class="cert-title">
+                Diploma in Computer Science
+              </h3>
+
+
+              <p class="cert-issuer">
+                Government Girls Polytechnic, Gorakhpur
+              </p>
+
+
+              <p class="cert-desc">
+                Diploma in Computer Science with a foundation in
+                programming, web technologies, databases, and software
+                development.
+              </p>
+
+
+              <div class="cert-footer">
+
+                <span class="cert-view-btn">
+
+                  <span>VIEW CREDENTIAL</span>
+
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+           02 — CODENOVA TECHNOLOGIES
+           ================================================= -->
+
+          <div class="cert-card glass-panel">
+
+            <div class="cert-thumb-wrap">
+
+              <img src="./certificates/codenova-internship.png" alt="6 Months Internship - CodeNova Technologies"
+                class="cert-thumb-img" loading="lazy" />
+
+              <div class="cert-thumb-overlay">
+
+                <span class="cert-expand-badge">
+
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l7 7M3 21l7-7" />
+                  </svg>
+
+                  <span>VIEW CREDENTIAL</span>
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="cert-body">
+
+              <div class="cert-card-header">
+
+                <span class="cert-badge">
+                  INTERNSHIP
+                </span>
+
+                <span class="cert-date">
+                  6 MONTHS
+                </span>
+
+              </div>
+
+
+              <h3 class="cert-title">
+                Web Development Internship
+              </h3>
+
+
+              <p class="cert-issuer">
+                CodeNova Technologies
+              </p>
+
+
+              <p class="cert-desc">
+                Six months of practical internship experience in web
+                development, working on real-world projects and building
+                professional development skills.
+              </p>
+
+
+              <div class="cert-footer">
+
+                <span class="cert-view-btn">
+
+                  <span>VIEW CREDENTIAL</span>
+
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l7-7M3 21l7-7" />
+                  </svg>
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+           03 — DREAM MEDICINE EDUCON
+           ================================================= -->
+
+          <div class="cert-card glass-panel">
+
+            <div class="cert-thumb-wrap">
+
+              <img src="./certificates/dream-medicine-experience.png"
+                alt="3 Months Intern Level Experience - Dream Medicine Educon Pvt. Ltd." class="cert-thumb-img"
+                loading="lazy" />
+
+              <div class="cert-thumb-overlay">
+
+                <span class="cert-expand-badge">
+
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+
+                  <span>VIEW CREDENTIAL</span>
+
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="cert-body">
+
+              <div class="cert-card-header">
+
+                <span class="cert-badge">
+                  PROFESSIONAL EXPERIENCE
+                </span>
+
+                <span class="cert-date">
+                  3 MONTHS
+                </span>
+
+              </div>
+
+
+              <h3 class="cert-title">
+                Web Development Experience
+              </h3>
+
+
+              <p class="cert-issuer">
+                Dream Medicine Educon Pvt. Ltd. | Lucknow
+              </p>
+
+
+              <p class="cert-desc">
+                Three months of intern-level professional experience,
+                gaining hands-on exposure to web development tasks and
+                working in a professional environment.
+              </p>
+
+
+              <div class="cert-footer">
+
+                <span class="cert-view-btn">
+
+                  <span>VIEW CREDENTIAL</span>
+
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l7-7M3 21l7-7" />
+                  </svg>
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <!-- <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="mono-num">05</span>
+          <span class="tag-title">TESTIMONIALS</span>
+        </div>
+
+        <h2 class="section-title">What Clients Are Saying</h2>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card glass-panel">
+            <div class="quote-icon">&ldquo;</div>
+            <p class="testimonial-body">
+              Khushabu created detailed 3D models and technical architectures for our medical devices. The precision and
+              realism helped us secure investors and streamline our development.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">DR. ANANYA KASHYAP</span>
+              <span class="author-role">MEDTECH VISUALS</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card glass-panel">
+            <div class="quote-icon">&ldquo;</div>
+            <p class="testimonial-body">
+              The 3D animations and UI interaction brought our product to life in ways we never thought possible. The
+              craft was breathtaking and delivered ahead of schedule.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">ROHIT VERMA</span>
+              <span class="author-role">PROTOSPHERE INNOVATIONS</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card glass-panel">
+            <div class="quote-icon">&ldquo;</div>
+            <p class="testimonial-body">
+              Outstanding 3D game assets and engineering support. The character models, shaders, and textures were
+              beyond our expectations. Essential contributor to our alpha launch.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">DEVRAJ MUKHERJEE</span>
+              <span class="author-role">APEX INTERACTIVE</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card glass-panel">
+            <div class="quote-icon">&ldquo;</div>
+            <p class="testimonial-body">
+              Khushabu's unique 3D designs made our digital collection a massive hit. The attention to technical detail
+              and
+              visual precision made all the difference.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">RHEA MEHTA</span>
+              <span class="author-role">METAFORM CREATIONS</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card glass-panel">
+            <div class="quote-icon">&ldquo;</div>
+            <p class="testimonial-body">
+              The 3D renders and interactive web systems produced for our campaign were incredible. It added a
+              distinctive edge to our visual identity.
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">MEERA BANERJEE</span>
+              <span class="author-role">BOLDEDGE MARKETING</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card glass-panel">
+            <div class="quote-icon">&ldquo;</div>
+            <p class="testimonial-body">
+              Khushabu's work on our VR project was exceptional. Creative ingenuity, deep technical rigor, and flawless
+              execution. Highly recommended!
+            </p>
+            <div class="testimonial-author">
+              <span class="author-name">CHIRAG SINGHAL</span>
+              <span class="author-role">REALMFORGE STUDIOS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-tag">
+          <span class="mono-num">06</span>
+          <span class="tag-title">GET IN TOUCH</span>
+        </div>
+
+        <div class="contact-layout">
+          <!-- Left Column -->
+          <div class="contact-info-col">
+            <h2 class="contact-heading">
+              LET'S<br>GET IN<br>TOUCH
+            </h2>
+
+            <div class="contact-direct">
+              <span class="direct-label">DIRECT INQUIRIES</span>
+              <a href="mailto:khushabusharma848@gmail.com" class="direct-email">khushabusharma848@gmail.com</a>
+              <a href="tel:+919728624010" class="direct-phone">+91 88878 07108</a>
+            </div>
+
+            <div class="contact-availability">
+              <span class="status-dot green"></span>
+              <span>Open to Full-Time Jobs & Web Development Projects</span>
+            </div>
+          </div>
+
+          <!-- Right Column / Interactive Form -->
+          <div class="contact-form-col">
+            <form id="contact-form" class="contact-form glass-panel">
+              <div class="form-group">
+                <label for="name">YOUR NAME</label>
+                <input type="text" id="name" name="name" placeholder="Jane Doe" autocomplete="name" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">EMAIL ADDRESS</label>
+                  <input type="email" id="email" name="email" placeholder="jane@example.com" inputmode="email"
+                    autocomplete="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">PHONE NUMBER</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+91 97286 24010" inputmode="tel"
+                    autocomplete="tel" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">PROJECT DETAILS</label>
+                <textarea id="message" name="message" rows="4"
+                  placeholder="Tell me about your project, timeline, and goals..." required
+                  spellcheck="true"></textarea>
+              </div>
+
+              <button type="submit" id="submit-btn" class="btn-submit">
+                <span>SEND MESSAGE</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                </svg>
+              </button>
+
+              <div id="form-feedback" class="form-feedback"></div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Giant Footer Title -->
+        <div class="footer-hero-brand">
+          <span class="giant-name">Khushabu Sharma</span>
+        </div>
+
+        <!-- Comprehensive Footer -->
+        <footer class="site-footer">
+          <!-- Col 1: Social Links -->
+          <div class="footer-col">
+            <span class="footer-heading">SOCIAL HANDLES</span>
+            <ul class="footer-links">
+              <li>
+                <a href="https://www.instagram.com/Khushabusharma.dev/" target="_blank" rel="noopener"
+                  class="footer-social-link">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                  <span>Instagram</span>
+                  <span class="link-arrow">&nearr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/Khushabu-sharma11/" target="_blank" rel="noopener"
+                  class="footer-social-link">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                  <span>LinkedIn</span>
+                  <span class="link-arrow">&nearr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/KhushabuSharmaa" target="_blank" rel="noopener" class="footer-social-link">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  <span>GitHub</span>
+                  <span class="link-arrow">&nearr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/Khushabu56710" target="_blank" rel="noopener" class="footer-social-link">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  <span>X (Twitter)</span>
+                  <span class="link-arrow">&nearr;</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Col 2: Quick Navigation -->
+          <div class="footer-col">
+            <span class="footer-heading">NAVIGATION</span>
+            <ul class="footer-links">
+              <li><a href="#hero">Back to Top &uarr;</a></li>
+              <li><a href="#about">About Khushabu</a></li>
+              <li><a href="#services">Services &amp; Capabilities</a></li>
+              <li><a href="#projects">Selected Projects</a></li>
+              <li><a href="#certificates">Verified Credentials</a></li>
+              <li><a href="#testimonials">Client Testimonials</a></li>
+              <li><a href="#contact">Get in Touch</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Direct Inquiries & Address -->
+          <div class="footer-col">
+            <span class="footer-heading">DIRECT INQUIRIES</span>
+            <ul class="footer-links">
+              <li><a href="mailto:khushabusharma848@gmail.com" class="highlight-link">khushabusharma848@gmail.com</a>
+              </li>
+              <li><a href="tel:+918887807108">+91 88878 07108</a></li>
+              <li class="address-text">Semara Captainganj Kushinagar, Uttar Pradesh 274301<br>India</li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Legal Terms & IP Protections -->
+          <div class="footer-col footer-col-right">
+            <span class="footer-heading">LEGAL &amp; COPYRIGHT TERMS</span>
+            <p class="copyright">&copy; 2026 Khushabu Sharma. All rights reserved.</p>
+            <div class="legal-notice-wrap">
+              <p class="legal-text">
+                All original designs, 3D assets, animations, and source code are created and owned by Khushabu Sharma.
+              </p>
+              <a href="./legal-notice.pdf" target="_blank" rel="noopener" id="legal-pdf-link" class="legal-pdf-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                </svg>
+                <span>View Official License &amp; Copyright Notice (PDF) &nearr;</span>
+              </a>
+            </div>
+            <div class="footer-status-pill">
+              <span class="status-dot"></span>
+              <span>Available Worldwide &bull; Remote</span>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Floating Speed-Dial Connect Hub -->
+  <div id="floating-connect-hub" class="floating-connect-hub">
+    <!-- Speed-dial expanding menu items -->
+    <div id="speed-dial-menu" class="speed-dial-menu">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/919728624010?text=Hi%20Khushabu,%20I%20saw%20your%20portfolio!" target="_blank"
+        rel="noopener" class="dial-item dial-whatsapp" data-label="WhatsApp Chat">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+        </svg>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/Khushabu-sharma11/" target="_blank" rel="noopener"
+        class="dial-item dial-linkedin" data-label="LinkedIn Profile">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z" />
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/Khushabusharma.dev/" target="_blank" rel="noopener"
+        class="dial-item dial-instagram" data-label="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+        </svg>
+      </a>
+
+      <!-- X (Twitter) -->
+      <a href="https://x.com/Khushabu56710" target="_blank" rel="noopener" class="dial-item dial-x"
+        data-label="X (Twitter)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/KhushabuSharmaa" target="_blank" rel="noopener" class="dial-item dial-github"
+        data-label="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+      </a>
+
+      <!-- Direct Call -->
+      <a href="tel:+919728624010" class="dial-item dial-phone" data-label="Call +91 97286 24010">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Main Floating Trigger Button -->
+    <button id="floating-connect-btn" class="floating-connect-btn glass-panel" aria-label="Open Connect Menu">
+      <div class="btn-icon-swap">
+        <!-- Message / Send icon -->
+        <svg class="icon-phone" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <path
+            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </svg>
+        <!-- Close icon -->
+        <svg class="icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- Certificate Viewer Modal -->
+  <div id="cert-modal" class="cert-modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window glass-panel">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Certificate</h3>
+        <div class="modal-actions">
+          <a id="modal-download" href="#" target="_blank" class="modal-action-btn" download>Open Original &nearr;</a>
+          <button id="modal-close" class="modal-close-btn" aria-label="Close modal">&times;</button>
+        </div>
+      </div>
+      <div id="modal-body" class="modal-body">
+        <!-- Injected image or iframe -->
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+
+</html>
