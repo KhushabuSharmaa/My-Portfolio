@@ -544,7 +544,7 @@ document.querySelectorAll('.cert-card').forEach((card) => {
 // Legal Notice PDF Modal Trigger
 legalPdfLink?.addEventListener('click', (e) => {
   e.preventDefault();
-  openModal('./legal-notice.pdf', 'Intellectual Property, Copyright & Legal Terms Notice — Khushabu Sharma', 'pdf', './portfolio_thumbnail.png');
+  openModal('./Khushbu_Sharma_CV.pdf', 'Professional CV — Khushabu Sharma | Web Developer — Khushabu Sharma', 'pdf');
 });
 
 modalClose?.addEventListener('click', closeModal);
